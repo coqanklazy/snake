@@ -26,6 +26,7 @@ SETTING_WIDTH = 350
 SETTING_HEIGHT = 180
 
 # Colors
+PURPLE = (160, 32, 240)
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GREEN = (0, 255, 0)
@@ -73,13 +74,13 @@ body2 = pygame.transform.scale(body2, (20, 20))
 food = pygame.image.load('image/food.png').convert_alpha()
 food = pygame.transform.scale(food, (20, 20))
 
-background = pygame.image.load('image/background.jpg').convert()
+background = pygame.image.load('image/background.png').convert()
 background = pygame.transform.scale(background, (WIDTH, HEIGHT))
 
 ground = pygame.image.load('image/ground.png').convert()
 ground = pygame.transform.scale(ground, (WIDTH, 150))
 
-snake_image = pygame.image.load('image/snake.png').convert_alpha()
+snake_image = pygame.image.load('image/snake_v2.png').convert_alpha()
 snake_image = pygame.transform.scale(snake_image, (650, 400))
 
 obstacles = pygame.image.load('image/BOM.png').convert_alpha()
@@ -551,9 +552,9 @@ def menu_logic():
 
     music_stop()
     screen.blit(background, (0, 0))
-    display_text("SNAKE GAME", 600, 200, RED, font120)
-    draw_map.draw(MAP_WIDTH, MAP_HEIGHT)
-    map = pygame.image.load(f'image/map{MAP_WIDTH}x{MAP_HEIGHT}.png')
+    display_text("SNAKE GAME", 600, 200, PURPLE, font120)
+    # draw_map.draw(MAP_WIDTH, MAP_HEIGHT)
+    map = pygame.image.load(f'image/map{MAP_WIDTH}x{MAP_HEIGHT}_v2.png')
     map = pygame.transform.scale(map, (WIDTH_SCALE-GRID_SIZE*2, HEIGHT_SCALE-GRID_SIZE*2))
     init_game()
 
@@ -582,7 +583,7 @@ def menu_logic():
 
 def mode_logic():
     screen.blit(background, (0, 0))
-    display_text("Mode", 600, 200, GOLD, font100)
+    display_text("Mode", 600, 200, PURPLE, font100)
 
     one_player_button = create_button(200, 60)
     one_player_text = font64.render("1P", True, BLACK)
@@ -657,7 +658,7 @@ def one_player_logic():
     show_time(time)
 
     display_text("Score: "+str(score1), WIDTH_SCALE-GRID_SIZE*(MAP_WIDTH-2), HEIGHT_SCALE+40, WHITE, font36)
-    display_text("Snake Game", 950, 120, GOLD, font100)
+    display_text("Snake Game", 950, 120, PURPLE, font100)
 
     # Pause Button
     pause_button = create_button(200, 60)
@@ -745,7 +746,7 @@ def PvP_logic():
 
     display_text("Score1: "+str(score1), WIDTH_SCALE-GRID_SIZE*(MAP_WIDTH-2), HEIGHT_SCALE+40, WHITE, font36)
     display_text("Score2: "+str(score2), WIDTH_SCALE-GRID_SIZE*(MAP_WIDTH-2), HEIGHT_SCALE+80, WHITE, font36)
-    display_text("Snake Game", 950, 120, GOLD, font100)
+    display_text("Snake Game", 950, 120, PURPLE, font100)
 
     # Pause Button
     pause_button = create_button(200, 60)
@@ -857,7 +858,7 @@ def game_over1_logic():
 
     display_text("Score: "+str(score1), WIDTH_SCALE-GRID_SIZE*(MAP_WIDTH-2), HEIGHT_SCALE+40, WHITE, font36)
     display_text("High Score: "+str(high_score), 960, 200, WHITE, font36)
-    display_text("Game Over", 960, 120, GOLD, font100)
+    display_text("Game Over", 960, 120, PURPLE, font100)
 
     # Retry Button
     retry_button = create_button(200, 60)
@@ -903,7 +904,7 @@ def game_over2_logic():
     display_text("Score2: "+str(score2), WIDTH_SCALE-GRID_SIZE*(MAP_WIDTH-2), HEIGHT_SCALE+80, WHITE, font36)
 
     display_text("High Score: "+str(high_score), 960, 200, WHITE, font36)
-    display_text("Game Over", 960, 120, GOLD, font100)
+    display_text("Game Over", 960, 120, PURPLE, font100)
 
     # Retry Button
     retry_button = create_button(200, 60)
@@ -1085,7 +1086,7 @@ def bfs_AI_logic():
     show_time(time)
 
     display_text("Score: "+str(score1), WIDTH_SCALE-GRID_SIZE*(MAP_WIDTH-2), HEIGHT_SCALE+40, WHITE, font36)
-    display_text("Snake Game", 950, 120, GOLD, font100)
+    display_text("Snake Game", 950, 120, PURPLE, font100)
 
     # Pause Button
     pause_button = create_button(200, 60)
@@ -1151,7 +1152,7 @@ def dfs_AI_logic():
     show_time(time)
 
     display_text("Score: "+str(score1), WIDTH_SCALE-GRID_SIZE*(MAP_WIDTH-2), HEIGHT_SCALE+40, WHITE, font36)
-    display_text("Snake Game", 950, 120, GOLD, font100)
+    display_text("Snake Game", 950, 120, PURPLE, font100)
 
     # Pause Button
     pause_button = create_button(200, 60)
@@ -1217,7 +1218,7 @@ def ID_AI_logic():
     show_time(time)
 
     display_text("Score: "+str(score1), WIDTH_SCALE-GRID_SIZE*(MAP_WIDTH-2), HEIGHT_SCALE+40, WHITE, font36)
-    display_text("Snake Game", 950, 120, GOLD, font100)
+    display_text("Snake Game", 950, 120, PURPLE, font100)
 
     # Pause Button
     pause_button = create_button(200, 60)
@@ -1283,7 +1284,7 @@ def ucs_AI_logic():
     show_time(time)
 
     display_text("Score: "+str(score1), WIDTH_SCALE-GRID_SIZE*(MAP_WIDTH-2), HEIGHT_SCALE+40, WHITE, font36)
-    display_text("Snake Game", 950, 120, GOLD, font100)
+    display_text("Snake Game", 950, 120, PURPLE, font100)
 
     # Pause Button
     pause_button = create_button(200, 60)
@@ -1348,7 +1349,7 @@ def greedy_AI_logic():
     show_time(time)
 
     display_text("Score: "+str(score1), WIDTH_SCALE-GRID_SIZE*(MAP_WIDTH-2), HEIGHT_SCALE+40, WHITE, font36)
-    display_text("Snake Game", 950, 120, GOLD, font100)
+    display_text("Snake Game", 950, 120, PURPLE, font100)
 
     # Pause Button
     pause_button = create_button(200, 60)
@@ -1483,7 +1484,7 @@ def bfs_PvE_logic():
 
     display_text("Score1: "+str(score1), WIDTH_SCALE-GRID_SIZE*(MAP_WIDTH-2), HEIGHT_SCALE+40, WHITE, font36)
     display_text("Score2: "+str(score2), WIDTH_SCALE-GRID_SIZE*(MAP_WIDTH-2), HEIGHT_SCALE+80, WHITE, font36)
-    display_text("Snake Game", 950, 120, GOLD, font100)
+    display_text("Snake Game", 950, 120, PURPLE, font100)
 
     # Pause Button
     pause_button = create_button(200, 60)

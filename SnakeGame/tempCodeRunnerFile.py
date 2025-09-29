@@ -1,2 +1,1 @@
-background = pygame.image.load('image/background.jpg').convert()
-background = pygame.transform.scale(background, (WIDTH, HEIGHT))
+button = pygame.transform.scale(button, (x-10, y+50))
